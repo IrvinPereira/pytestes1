@@ -1,26 +1,28 @@
-name: Testes Automatizados 
+name: Testes Automatizados
 
-on: 
+on:
   push:
 
-job:
+jobs:
+
   Testes:
-  run-on: ubuntu-latest
 
-  steps:
-    -name: Baixar codigo
-    uses: actions/checkout@v6
+    runs-on: ubuntu-latest
 
-    -name: Configurar Python
-    Uses: actions/setup-Python@07
-    with:
-      Python-version: "3.14"
-    
-    -name: instalar dependencias
-      run:
-      python -m pip install --upgrade pip
-      python -m pip install -r requeriments.
+    steps:
+      - name: Baixar codigo
+        uses: actions/checkout@v6
 
-    -name: Executar Testes
-      run:
-        pytest -v
+      - name: Configurar Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.14"
+
+      - name: instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Executar Testes
+        run: |
+          pytest -v
