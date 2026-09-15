@@ -1,9 +1,6 @@
 def somar (a,b):
-<<<<<<< HEAD
-    return a + b
-=======
+
     return a - b
->>>>>>> cee17e2 (simulador de regressão na soma)
 
 def subtrair (a,b):
     return a - b
